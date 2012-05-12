@@ -1,8 +1,12 @@
 #pragma once
 
 #include "ofMain.h"
+#include "cell.h"
+#include "vector"
 
 class testApp : public ofBaseApp{
+    private:
+        vector< vector<cell *> > cells;
 
 	public:
 		void setup();

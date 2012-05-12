@@ -1,28 +1,35 @@
 #include "testApp.h"
 #include "cell.h"
+#include "vector"
 
 //--------------------------------------------------------------
 void testApp::setup(){
+    int i, j;
+    int width = 20;
 
+    for (i = 0; i < 800; i = i + width) {
+        vector<cell *> line;
+        for (j = 0; j < 600; j = j + width) {
+            cell *c = new cell(i, j, width);
+            line.push_back(c);
+        }
+        cells.push_back(line);
+    }
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
-
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
     int i, j;
-    int width = 20;
-    
-    for (i = 0; i < 800; i = i + width) {
-        for (j = 0; j < 600; j = j + width) {
-            cell c(i, j, width);
-            c.draw();
+    for (i = 0; i < cells.size(); i++) {
+        vector<cell *> line = cells[i];
+        for (j = 0; j < line.size(); j++) {
+            (line[j])->draw();
         }
     }
-
 }
 
 //--------------------------------------------------------------
