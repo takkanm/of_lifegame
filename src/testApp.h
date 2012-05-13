@@ -8,6 +8,10 @@ class testApp : public ofBaseApp{
     private:
         vector< vector<cell *> > cells;
         int cell_width;
+        cell *before_change_cell;
+
+        void toggleCell(int x, int y);
+        cell* current_cell(int x, int y);
 
 	public:
 		void setup();

@@ -56,20 +56,33 @@ void testApp::mouseMoved(int x, int y ){
 
 //--------------------------------------------------------------
 void testApp::mouseDragged(int x, int y, int button){
-
+    toggleCell(x, y);
 }
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
+    toggleCell(x, y);
+}
+
+void testApp::toggleCell(int x, int y) {
+    cell *cell = current_cell(x, y);
+
+    if (cell != before_change_cell) {
+        cell->toggle();
+        before_change_cell = cell;
+    }
+}
+
+cell* testApp::current_cell(int x, int y) {
     int cell_x = x / cell_width;
     int cell_y = y / cell_width;
 
-    cells[cell_x][cell_y]->toggle();
+    return cells[cell_x][cell_y];
 }
 
 //--------------------------------------------------------------
 void testApp::mouseReleased(int x, int y, int button){
-
+    before_change_cell = NULL;
 }
 
 //--------------------------------------------------------------
