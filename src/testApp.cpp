@@ -23,11 +23,14 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-    int i, j;
-    for (i = 0; i < cells.size(); i++) {
-        vector<cell *> line = cells[i];
-        for (j = 0; j < line.size(); j++) {
-            (line[j])->draw();
+    vector< vector<cell *> >::iterator line_iterator = cells.begin();
+    
+    while (line_iterator != cells.end()) {
+        vector<cell *> line = *(line_iterator++);
+        vector<cell *>::iterator cell_iterator = line.begin();
+        
+        while(cell_iterator != line.end()) {
+            (*(cell_iterator++))->draw();
         }
     }
 }
