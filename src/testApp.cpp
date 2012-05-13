@@ -6,13 +6,16 @@
 void testApp::setup(){
     int i, j;
     int width = 20;
+    int window_hight = ofGetWindowHeight();
+    int window_width = ofGetWindowWidth();
 
-    for (i = 0; i < 800; i = i + width) {
+    for (i = 0; i < window_width; i = i + width) {
         vector<cell *> line;
-        for (j = 0; j < 600; j = j + width) {
-            cell *c = new cell(i, j, width);
-            line.push_back(c);
+        
+        for (j = 0; j < window_hight; j = j + width) {
+            line.push_back(new cell(i, j, width));
         }
+
         cells.push_back(line);
     }
 }
