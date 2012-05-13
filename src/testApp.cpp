@@ -41,7 +41,27 @@ void testApp::draw(){
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
+    switch (key) {
+        case (int)'c':
+            clearCells();
+            break;
+        default:
+            break;
+    }
+}
 
+void testApp::clearCells() {
+    vector< vector<cell *> >::iterator line_iterator = cells.begin();
+
+    // TODO drawのところと共通化したい
+    while (line_iterator != cells.end()) {
+        vector<cell *> line = *(line_iterator++);
+        vector<cell *>::iterator cell_iterator = line.begin();
+
+        while(cell_iterator != line.end()) {
+            (*(cell_iterator++))->die();
+        }
+    }
 }
 
 //--------------------------------------------------------------

@@ -10,6 +10,7 @@ class testApp : public ofBaseApp{
         int cell_width;
         cell *before_change_cell;
 
+        void clearCells();
         void toggleCell(int x, int y);
         cell* current_cell(int x, int y);
 
