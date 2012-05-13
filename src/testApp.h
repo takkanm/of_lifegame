@@ -7,6 +7,7 @@
 class testApp : public ofBaseApp{
     private:
         vector< vector<cell *> > cells;
+        int cell_width;
 
 	public:
 		void setup();

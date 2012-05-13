@@ -5,15 +5,16 @@
 //--------------------------------------------------------------
 void testApp::setup(){
     int i, j;
-    int width = 20;
+
     int window_hight = ofGetWindowHeight();
     int window_width = ofGetWindowWidth();
+    cell_width = 20;
 
-    for (i = 0; i < window_width; i = i + width) {
+    for (i = 0; i < window_width; i = i + cell_width) {
         vector<cell *> line;
         
-        for (j = 0; j < window_hight; j = j + width) {
-            line.push_back(new cell(i, j, width));
+        for (j = 0; j < window_hight; j = j + cell_width) {
+            line.push_back(new cell(i, j, cell_width));
         }
 
         cells.push_back(line);
