@@ -7,9 +7,14 @@ private:
     int pos_y;
     int width;
     bool life;
-    
+
+    void drawCellLine();
+    void drawCell();
+    void setCellColor();
+
 public:
     cell(int x, int y, int width);
+    void toggle();
     void die();
     void birth();
     void draw();    

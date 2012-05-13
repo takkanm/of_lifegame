@@ -61,7 +61,10 @@ void testApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
+    int cell_x = x / cell_width;
+    int cell_y = y / cell_width;
 
+    cells[cell_x][cell_y]->toggle();
 }
 
 //--------------------------------------------------------------
